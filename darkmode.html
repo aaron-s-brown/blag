@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<head>
+  <style>
+    body {
+      margin: 20px;
+    }
+    img {
+      max-width: 100%;
+    }
+  </style>
+  <title>This page has dark mode enabled - Aaron Brown's Blog</title>
+</head>
+<body>
+  <h1>This page has dark mode enabled</h1>
+  <h2>No, really</h2>
+  <p>
+    If you're viewing this in a web browser with dark mode enabled, or some kind of dark theme, you might be wondering
+    what the hell I'm talking about -- it most likely just looks like white text on a black background. I'd hazard a
+    guess that more than 99% of the internet would see it this way when they open this page in their browser. However,
+    in Firefox on the computer I'm writing this on, it looks like black text on a light beige background.
+  </p>
+  <p>
+    What does beige have to do with dark mode? Well, it's beige because I've told Firefox that I want the default
+    background color of all webpages to be beige! I could also set it to default to a black background, which combined
+    with a white text setting, looks like this:
+  </p>
+  <img src="dark2.png" />
+  <h2>Not all web browsers are this nice to you</h2>
+  <p>
+    Your browser may not give you this option. In fact, I couldn't figure out how to get Chrome or Safari on Mac, or
+    Safari on iPhone, to do this for me. (I'm guessing there's a way to do this on at least Chrome, but
+    <a href="https://www.google.com/search?q=google+chrome+default+background"
+      >a quick Google search yielded nothing useful.</a
+    >
+    In fact, I'm not even sure I can get Chrome to change the default text color using its basic settings UI.
+  </p>
+  <p>
+    Why doesn't Google want me to change something so basic as background color and text color? Well, probably because
+    it leads to strange looking webpages like this:
+  </p>
+  <img src="dark3.png" />
+  <p>
+    I don't think the creator of this page intended this -- but if you set the background color on some divs or headers
+    and not others, you end up with something like this on my screen. Even worse, if you set a text color of black or
+    very dark grey, but no background color, you can end up with invisible text if the browser's background is set to
+    black! If you're making webpages, you can of course avoid all of this by always either setting both a background
+    color and text color, or neither. A base CSS style like this will go a long way here.
+  </p>
+  <pre>body, div { background-color: white; text-color: black; }</pre>
+  <p>
+    But, this is a blog post made of text with a few images thrown in, and I really don't care what color you like your
+    text to be or what background you want behind it. I could tell your browser what color to show in the case that you
+    like dark mode, but I also don't care to do that. Maybe I will bother when I'm making other pages whose content
+    depends more on colors. But while this one has a lot of content about colors, I'll leave it to you to choose what
+    color you want your content to appear in.
+  </p>
+  <p>You just might need a new web browser first.</p>
+</body>
