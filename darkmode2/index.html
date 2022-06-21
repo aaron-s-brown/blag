@@ -4,7 +4,30 @@
     body {
       margin: 20px;
     }
+    img {
+      max-width: 100%;
+    }
+    footer {
+      font-style: italic;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: black;
+        color: #e0e0e0;
+      }
+    }
+    @media (prefers-color-scheme: light) {
+      body {
+        background-color: #e3debb;
+        color: black;
+      }
+    }
+    :root {
+      color-scheme: light dark;
+    }
   </style>
+
   <title>Dark Mode but really this time - Aaron Brown's Blog</title>
 </head>
 <body>
@@ -12,6 +35,56 @@
   <p>
     OK, today let's try to make a page that actually turns dark if you have some sort of dark mode set in your OS or
     browser. I've seen some blog posts around the internet about this, but let's actually try and see what we can up
-    with by going to the source. Namely, MDN's page about dark mode.
+    with by going to the source. Namely, MDN's page about dark mode, aka the
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme"
+      >prefers-color-scheme media feature.</a
+    >
+    There's not much to it -- <span class="code">@media (prefers-color-scheme: light)</span> selects elements in a
+    browser with a light color theme enabled, and <span class="code">@media (prefers-color-scheme: dark)</span> selects
+    elements in a browser with a dark theme enabled. Let's try it out!
   </p>
+  <p>The first pass at the code:</p>
+  <pre>
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: black;
+        color: #e0e0e0;
+      }
+    }
+    @media (prefers-color-scheme: light) {
+      body {
+        background-color: white;
+        color: black;
+      }
+    }</pre
+  >
+  <p>The result:</p>
+  <video src="darkmode2/dark.mov" controls width="600"></video>
+  <p>
+    One thing you might notice here is that the link color was basically invisible in dark mode. We could go setting
+    colors for every common HTML element, like link text, buttons, dropdowns, etc. However, there's actually an easy way
+    to get some sane defaults for all of these:
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme">the color-scheme CSS property.</a>
+    Unlike the media query feature, this CSS property simply tells the browser that we intend an element to be styled with a light or dark theme. If we apply this style, the browser will apply some default styles to all elements on the page for light and dark modes:
+    <pre>
+:root {
+    color-scheme: light dark;
+}
+    </pre>
+  </p>
+  <p>
+    A smattering of html elements, before adding the above CSS:
+  </p>
+  <img src="darkmode2/before.png" />
+  <p>And after:</p>
+  <img src="darkmode2/after.png" />
+  <p>
+    This gives you a nice way to fall back to some basic browser defaults for dark (or light) mode, while still giving you
+    the ability to set specific styles for elements you want to style yourself. You can also accomplish the same thing with a meta tag at the HTML level if you want it to load in before any CSS loads:
+  </p>
+  <pre>
+&lt;meta name=&quot;color-scheme&quot; content=&quot;light dark&quot;&gt;
+  </pre>
+<p>Unfortunately, since Safari is the new IE, Safari doesn't seem to change anything when you set this property! Well, you can't have everything in life, especially on the web. I suppose this is some motivation to set your own styles for everything if you're going to go down this route, but at least most users will see a reasonable default if you set the color-scheme property in :root or meta.</p>
+<footer>Stay tuned next time for: Fun with Flexbox, or, how smooth is Svelte?</footer>
 </body>
