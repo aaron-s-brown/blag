@@ -7,10 +7,12 @@ flexbox
 css grid
 
 blog:
-how to automate getting small screenshots of some webpage onto a different webpage
+blog content repo (or just private repo?)
+
 Automate turning paragraphs into <p>s
 -write an html parser in typescript? rust?
 How many words are in this blog post?
+how to automate getting small screenshots of some webpage onto a different webpage
 Vercel is pretty cool. how much free web hosting can I milk out of Vercel?
 Svelte?
 Sveltekit
@@ -24,6 +26,8 @@ typescript
 css
 rust???
 svelte
+webRTC
+https://hapi.dev/
 
 working in tech:
 The small amount of knowledge I've gained about being a manager
